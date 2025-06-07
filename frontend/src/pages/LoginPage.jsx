@@ -17,7 +17,7 @@ const LoginPage = () => {
         {/* Left: Form */}
         <div className="login-box" >
           <div className="welcome-message">
-            <h1>Welcome to Ship Tracker!</h1>
+            <h1>Welcome Back!</h1>
             <p className="subtitle">Monitor vessel movements in real-time with our advanced tracking system</p>
           </div>
           <LoginForm onLogin={handleLogin} />

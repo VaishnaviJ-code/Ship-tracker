@@ -13,10 +13,20 @@ const LoginForm = ({ onLogin }) => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onLogin(credentials);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(credentials)
+    });
+    const data = await response.json();
+    localStorage.setItem('token', data.token); // Store token
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   return (
     <form className="login-form" aria-label="Login Form" onSubmit={handleSubmit}>
@@ -58,6 +68,9 @@ const LoginForm = ({ onLogin }) => {
         <a href="/forgot-password" aria-label="Forgot password? Reset password here">
           Forgot Password?
         </a>
+        <p className="auth-switch">
+          Don't have an account? <a href="/register">Register here</a>
+        </p>
       </div>
     </form>
   );

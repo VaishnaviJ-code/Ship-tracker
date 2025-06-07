@@ -1,0 +1,211 @@
+/* LoginPage.css */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Image (Blurred) */
+.login-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/pattern.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: 0;
+}
+
+/* Noise Overlay */
+.login-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNg+A8AAsUBgCBnGMEAAAAASUVORK5CYII=");
+  background-repeat: repeat;
+  opacity: 0.1;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Content Container */
+.login-container {
+  display: flex;
+  background-color: white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  width: 90%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Add to LoginPage.css */
+.welcome-message {
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+
+.login-box {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-box h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.login-box label {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.login-box input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.login-box button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.login-box button:hover {
+  background-color: #333;
+}
+
+.image-box {
+  flex: 1;
+}
+
+
+/* Add to LoginPage.css */
+.forgot-password {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.forgot-password a {
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.forgot-password a:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+/* Add to LoginPage.css */
+.password-input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.password-input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: #0066cc;
+  background: none;
+}
+
+.password-toggle:focus {
+  outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  
+  .image-box img {
+    border-radius: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+}

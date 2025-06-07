@@ -1,140 +1,119 @@
-/* RegisterPage.css - Specific to registration page
-.auth-page {
+/* Reuses login styles but ensures proper scoping */
+.login-wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
 }
 
-/* Background Image (Blurred) */
-/* .auth-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('../assets/pattern.jpg');
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px);
-  z-index: 0;
-} */
-
-/* Noise Overlay */
-/* .auth-page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNg+A8AAsUBgCBnGMEAAAAASUVORK5CYII=");
-  background-repeat: repeat;
-  opacity: 0.1;
-  z-index: 1;
-  pointer-events: none;
-} */ */
-
-.auth-page {
+.login-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: white;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  width: 850px;
 }
 
-.auth-container {
+.login-box {
+  flex: 1;
+  padding: 30px;
+  max-width: 400px;
+}
+
+/* Image section (right) */
+.auth-image-container {
+  flex: 1;
+  background: #f0f0f0;
+}
+
+.auth-image-container img {
   width: 100%;
-  max-width: 450px;
-  padding: 2.5rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  object-fit: cover;
 }
 
-.register-title {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #2c3e50;
+.welcome-message h1 {
   font-size: 1.8rem;
+  margin-bottom: 8px;
 }
 
-.register-form .form-group {
-  margin-bottom: 1.5rem;
+.subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
 }
 
-.register-form label {
+.error-message {
+  color: #e74c3c;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Form styles match login page */
+.login-form label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-top: 8px;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #34495e;
 }
 
-.register-form input {
+.login-form input {
   width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
+  box-sizing: border-box;
 }
 
-.register-form input:focus {
-  border-color: #3498db;
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+.password-input-container {
+  position: relative;
 }
 
-.register-submit-btn {
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}
+
+.login-form button {
   width: 100%;
-  padding: 0.8rem;
-  background-color: #3498db;
+  padding: 10px;
+  background-color: black;
   color: white;
+  font-weight: bold;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
-.register-submit-btn:hover {
-  background-color: #2980b9;
-}
-
-.register-error {
-  color: #e74c3c;
-  margin-bottom: 1rem;
+.login-footer {
   text-align: center;
-  padding: 0.5rem;
-  background-color: rgba(231, 76, 60, 0.1);
-  border-radius: 4px;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #666;
 }
 
-.register-footer {
-  text-align: center;
-  margin-top: 1.5rem;
-  color: #7f8c8d;
-}
-
-.register-footer a {
-  color: #3498db;
+.login-footer a {
+  color: #0066cc;
   text-decoration: none;
-  font-weight: 500;
 }
 
-.register-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Password strength indicator */
-.password-strength {
-  margin-top: 0.5rem;
-  height: 4px;
-  background-color: #ecf0f1;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.strength-bar {
-  height: 100%;
-  width: 0%;
-  transition: width 0.3s, background-color 0.3s;
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    width: 90%;
+  }
+  
+  .auth-image-container {
+    display: none; /* Hide image on mobile */
+  }
 }

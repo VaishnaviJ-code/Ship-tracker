@@ -1,23 +1,25 @@
+import './RegisterPage.css';
 import RegisterForm from '../components/RegisterForm';
 import shipImg from '../assets/ship.jpg';
-import bgPattern from '../assets/pattern.jpg';
-import './RegisterPage.css'; 
 
 const RegisterPage = () => {
   return (
-    <div className="auth-page" style={{ backgroundImage: `url(${bgPattern})` }}>
-      <div className="auth-container">
-        <div className="welcome-message">
+    <div className="login-wrapper">
+      <div className="login-container">
+        {/* Left: Form */}
+        <div className="login-box">
+          <div className="welcome-message">
             <h1>Welcome to Ship Tracker!</h1>
-            <p className="subtitle">Monitor vessel movements in real-time with our advanced tracking system</p>
+            <p className="subtitle">Create your account to start tracking vessels</p>
+          </div>
+          <RegisterForm />
         </div>
-        <RegisterForm />
-      </div>
 
-        <div className="image-box">
-            <img src={shipImg} alt="Cargo ship sailing on ocean waters" 
-            aria-hidden="false"/>
+        {/* Right: Image */}
+        <div className="auth-image-container">
+          <img src={shipImg} alt="Cargo ship sailing on ocean waters" />
         </div>
+      </div>
     </div>
   );
 };
